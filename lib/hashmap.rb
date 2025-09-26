@@ -1,11 +1,8 @@
 require_relative 'bucket'
 
 class HashMap
-  attr_reader :load_factor, :capacity
-
   def initialize(load_factor = 0.75, capacity = 17)
     @load_factor = load_factor
-    @original_capacity = capacity
     @capacity = capacity
     @buckets = Array.new(capacity)
   end
@@ -70,17 +67,6 @@ class HashMap
 
   def entries
     @buckets.reduce([]) { |result, bucket| result + (bucket&.entries || []) }
-  end
-
-  def current_load
-    length.to_f / @capacity
-  end
-
-  def show_buckets
-    @buckets.each do |bucket|
-      representation = bucket.nil? ? [] : bucket.entries
-      print "#{representation}\n"
-    end
   end
 
   private

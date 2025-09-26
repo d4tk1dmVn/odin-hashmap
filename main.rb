@@ -9,18 +9,6 @@ carambolas_pairs = [['apple', 'carambolas'], ['banana', 'carambolas'], ['carrot'
 
 test = HashMap.new
 pairs.each { |pair| test.set(*pair) }
-puts "The hash length is #{test.length} and it should be #{pairs.length}"
-test.show_buckets
-puts "***************************************************************************"
 overwrite_pairs.each { |pair| test.set(*pair) }
-puts "The hash length is #{test.length}"
-test.show_buckets
-puts "***************************************************************************"
 test.set('moon', 'silver')
-puts "The hash length is #{test.length}"
-test.show_buckets
-puts "***************************************************************************"
 carambolas_pairs.each { |pair| test.set(*pair) }
-puts "The hash length is #{test.length}"
-test.show_buckets
-puts "***************************************************************************"
