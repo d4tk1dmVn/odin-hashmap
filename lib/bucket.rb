@@ -34,6 +34,16 @@ class Bucket < LinkedList
     nil
   end
 
+  def find(key)
+    index = 0
+    each do |node|
+      return index if node.value[0] == key
+
+      index += 1
+    end
+    nil
+  end
+
   def remove(key)
     index = find(key)
     return nil if index.nil?
