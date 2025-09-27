@@ -59,6 +59,12 @@ class LinkedList
     "#{result}nil"
   end
 
+  def to_a
+    result = []
+    each { |node| result.append(node.value) }
+    result
+  end
+
   def append(value)
     new_node = Node.new(value)
     @head = new_node if empty?
