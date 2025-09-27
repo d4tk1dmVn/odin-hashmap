@@ -7,12 +7,6 @@ class HashMap
     @buckets = Array.new(capacity)
   end
 
-  def hash(key)
-    ord_code_sum = key.chars.map(&:ord).sum
-    fraction = (Math.sqrt(5) - 1) / 2
-    (@capacity * ((ord_code_sum * fraction) % 1)).floor
-  end
-
   def set(key, value)
     hashed_key = hash(key)
     indexed_bucket = @buckets[hashed_key]
@@ -70,6 +64,12 @@ class HashMap
   end
 
   private
+
+  def hash(key)
+    ord_code_sum = key.chars.map(&:ord).sum
+    fraction = (Math.sqrt(5) - 1) / 2
+    (@capacity * ((ord_code_sum * fraction) % 1)).floor
+  end
 
   def duplicate_size
     copy = entries
