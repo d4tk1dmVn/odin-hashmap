@@ -15,6 +15,7 @@ class HashMap
       return
     end
     duplicate_size if load_factor_reached?
+    hashed_key = hash(key)
     if @buckets[hashed_key].nil?
       @buckets[hashed_key] = Bucket.new([key, value])
     else
@@ -25,7 +26,6 @@ class HashMap
   def get(key)
     hashed_key = hash(key)
     return nil if @buckets[hashed_key].nil?
-
     @buckets[hashed_key].get_value(key)
   end
 
